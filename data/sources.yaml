@@ -1,0 +1,48 @@
+# Knowledge-base sources. Every source is pinned to a commit so the corpus and the
+# retrieval eval set stay reproducible. Raw files are NOT committed (see .gitignore):
+# run `make data` to download them. Licenses were checked on 2026-11-22.
+
+- id: attack
+  name: MITRE ATT&CK Enterprise v20.1
+  repo: mitre-attack/attack-stix-data
+  commit: a8db2f52eb933c9c99060c123e088b3326d3a607
+  include: ["enterprise-attack/enterprise-attack-20.1.json"]
+  kind: attack_stix
+  license: MITRE ATT&CK Terms of Use (royalty-free, attribution required)
+  license_url: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/
+
+- id: counteractive
+  name: Counteractive incident response plan template (playbooks)
+  repo: counteractive/incident-response-plan-template
+  commit: e75b810072a8276fdb6324682c37017c877744ef
+  include: ["playbooks/playbook-*.md"]
+  kind: markdown
+  license: Apache-2.0
+
+- id: austinsonger
+  name: Incident-Playbook (austinsonger)
+  repo: austinsonger/Incident-Playbook
+  commit: 70f9c4cf6dc20c9861f3bb69617bb49fc61f83cf
+  include:
+    - "Playbooks/MITRE-ATTACK/*/*.md"
+    - "Playbooks/General/*.md"
+    - "Incident-Response/Incident-Response-Checklists/*.md"
+  exclude: ["*/README.md"]        # README files only repeat ATT&CK tables
+  kind: markdown
+  license: MIT
+
+- id: aws
+  name: AWS incident response playbooks
+  repo: aws-samples/aws-incident-response-playbooks
+  commit: 699c7c7c30f4add23531a3afd1f1803ab61d5f11
+  include: ["playbooks/IRP-*.md"]
+  kind: markdown
+  license: MIT-0
+
+- id: certsg
+  name: CERT Societe Generale Incident Response Methodologies (IRM)
+  repo: certsocietegenerale/IRM
+  commit: 21a9f05d75dc0a65227224fd8b21a2e15718a442
+  include: ["EN/IRM-*.pdf"]
+  kind: pdf
+  license: CC-BY-3.0

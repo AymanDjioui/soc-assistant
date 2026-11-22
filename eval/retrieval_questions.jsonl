@@ -1,0 +1,60 @@
+{"id": "id01", "type": "id_lookup", "question": "What is T1003.001?", "gold": ["attack:T1003.001"]}
+{"id": "id02", "type": "id_lookup", "question": "Which mitigations apply to T1110.003?", "gold": ["attack:T1110.003"]}
+{"id": "id03", "type": "id_lookup", "question": "How can I detect T1021.001?", "gold": ["attack:T1021.001"]}
+{"id": "id04", "type": "id_lookup", "question": "Explain T1078.004 in simple terms.", "gold": ["attack:T1078.004"]}
+{"id": "id05", "type": "id_lookup", "question": "Detection ideas for T1190", "gold": ["attack:T1190"]}
+{"id": "id06", "type": "id_lookup", "question": "Which tactic does T1548.002 belong to?", "gold": ["attack:T1548.002"]}
+{"id": "id07", "type": "id_lookup", "question": "T1046 on an internal subnet", "gold": ["attack:T1046"]}
+{"id": "id08", "type": "id_lookup", "question": "How do defenders spot T1134?", "gold": ["attack:T1134"]}
+{"id": "sy01", "type": "symptom", "question": "A Word document started powershell.exe with an -enc argument", "gold": ["attack:T1059.001", "attack:T1204.002"]}
+{"id": "sy02", "type": "symptom", "question": "An unknown process opened the memory of lsass.exe", "gold": ["attack:T1003.001"]}
+{"id": "sy03", "type": "symptom", "question": "Hundreds of failed logins on different usernames from one IP, always with the same password", "gold": ["attack:T1110.003"]}
+{"id": "sy04", "type": "symptom", "question": "A new Windows service was installed that runs a binary from the Temp folder", "gold": ["attack:T1543.003", "attack:T1569.002"]}
+{"id": "sy05", "type": "symptom", "question": "A task was registered to run a script from AppData every hour", "gold": ["attack:T1053.005", "attack:T1053", "austinsonger:T1053-Scheduled-Task-Job"]}
+{"id": "sy06", "type": "symptom", "question": "vssadmin delete shadows /all /quiet ran on a file server", "gold": ["attack:T1490"]}
+{"id": "sy07", "type": "symptom", "question": "A registry Run key now points to an exe in the user's profile folder", "gold": ["attack:T1547.001"]}
+{"id": "sy08", "type": "symptom", "question": "rundll32 loaded a DLL from a user-writable directory", "gold": ["attack:T1218.011"]}
+{"id": "sy09", "type": "symptom", "question": "A workstation sends many DNS queries with very long random-looking subdomains", "gold": ["attack:T1071.004", "attack:T1048.003", "attack:T1568.002", "attack:T1572"]}
+{"id": "sy10", "type": "symptom", "question": "The security event log on a domain controller was wiped", "gold": ["attack:T1685.005", "attack:T1685.001", "attack:T1685"]}
+{"id": "sy11", "type": "symptom", "question": "certutil was used to fetch a file from an external URL", "gold": ["attack:T1105", "attack:T1140"]}
+{"id": "sy12", "type": "symptom", "question": "A mailbox got a new rule that sends every incoming email to an outside address", "gold": ["attack:T1114.003", "certsg:IRM-22-Business-Email-Compromise"]}
+{"id": "sy13", "type": "symptom", "question": "An attacker authenticates to many hosts with an NTLM hash instead of the password", "gold": ["attack:T1550.002", "austinsonger:T1550.002-Lateral-Movement-Pass-the-Hash"]}
+{"id": "sy14", "type": "symptom", "question": "One account requested service tickets for many SPNs using RC4 encryption", "gold": ["attack:T1558.003"]}
+{"id": "sy15", "type": "symptom", "question": "The IIS worker process w3wp.exe spawned cmd.exe", "gold": ["attack:T1505.003", "attack:T1190"]}
+{"id": "sy16", "type": "symptom", "question": "PsExec was used to run commands on a remote server", "gold": ["attack:T1569.002", "attack:T1021.002"]}
+{"id": "sy17", "type": "symptom", "question": "Files were packed into a password-protected 7z archive before being sent out", "gold": ["attack:T1560.001", "attack:T1560"]}
+{"id": "sy18", "type": "symptom", "question": "Gigabytes of internal files were uploaded to a public file-sharing site", "gold": ["attack:T1567.002", "attack:T1567", "attack:T1048"]}
+{"id": "sy19", "type": "symptom", "question": "Malicious code was written into the memory of explorer.exe and run there", "gold": ["attack:T1055", "austinsonger:T1055-Process-Injection"]}
+{"id": "sy20", "type": "symptom", "question": "Files on network shares suddenly have a new extension and a ransom note appeared", "gold": ["attack:T1486", "certsg:IRM-17-Ransomware", "counteractive:playbook-ransomware", "austinsonger:T1486-Data-Encrypted-for-Impact-Ransomware"]}
+{"id": "pr01", "type": "procedure", "question": "How do I contain a ransomware infection on a file server?", "gold": ["counteractive:playbook-ransomware", "certsg:IRM-17-Ransomware", "austinsonger:T1486-Data-Encrypted-for-Impact-Ransomware", "attack:T1486"]}
+{"id": "pr02", "type": "procedure", "question": "A user reported a suspicious email. What are the first response steps?", "gold": ["counteractive:playbook-phishing", "certsg:IRM-16-Phishing", "austinsonger:T1566-Phishing-T1566.001-T1566.002-T1566.003", "attack:T1566"]}
+{"id": "pr03", "type": "procedure", "question": "Our public website has been defaced. How should we respond?", "gold": ["counteractive:playbook-defacement", "certsg:IRM-6-Website-Defacement", "austinsonger:T1491-Defacement-T1491.001-T1491.002", "attack:T1491.002", "attack:T1491"]}
+{"id": "pr04", "type": "procedure", "question": "How to handle a DDoS attack against our online services?", "gold": ["certsg:IRM-4-DDOS", "attack:T1498", "attack:T1499", "aws:IRP-DoS"]}
+{"id": "pr05", "type": "procedure", "question": "AWS access keys were pushed to a public GitHub repo. What do I do?", "gold": ["aws:IRP-CredCompromise"]}
+{"id": "pr06", "type": "procedure", "question": "How do I investigate a possibly compromised Linux server?", "gold": ["certsg:IRM-3-UnixLinuxIntrusionDetection"]}
+{"id": "pr07", "type": "procedure", "question": "How should we respond to CEO fraud where finance was asked to wire money?", "gold": ["certsg:IRM-22-Business-Email-Compromise", "certsg:IRM-14-Scam"]}
+{"id": "pr08", "type": "procedure", "question": "An employee may be stealing confidential data before leaving. How to handle it?", "gold": ["certsg:IRM-12-InsiderAbuse", "certsg:IRM-11-InformationLeakage", "aws:IRP-InsiderThreat"]}
+{"id": "pr09", "type": "procedure", "question": "Which logs should I look at during a security incident and in what order?", "gold": ["austinsonger:Log-Review-Checklist-for-Security-Incidents"]}
+{"id": "pr10", "type": "procedure", "question": "A worm is spreading between workstations. How do we stop and clean it?", "gold": ["certsg:IRM-1-WormInfection", "certsg:IRM-18-Large-scale-compromise"]}
+{"id": "pr11", "type": "procedure", "question": "What should I check when a customer account was taken over?", "gold": ["austinsonger:Account-Takeover-ATO-Checklist"]}
+{"id": "pr12", "type": "procedure", "question": "A supplier with VPN access to our network was hacked. What now?", "gold": ["certsg:IRM-19-3rd-party-compromise"]}
+{"id": "pr13", "type": "procedure", "question": "Someone deleted our EBS snapshots and S3 object versions and left a ransom note", "gold": ["aws:IRP-Ransomware"]}
+{"id": "pr14", "type": "procedure", "question": "An employee's Android phone has malware. How do we respond?", "gold": ["certsg:IRM-9-SmartphoneMalware"]}
+{"id": "pr15", "type": "procedure", "question": "How to prioritise patching a critical vulnerability that is exploited in the wild?", "gold": ["certsg:IRM-21-Critical-Vulnerability-Prioritization"]}
+{"id": "pr16", "type": "procedure", "question": "Someone threatens to leak our data unless we pay them", "gold": ["certsg:IRM-8-Blackmail"]}
+{"id": "pr17", "type": "procedure", "question": "How can the SOC tell a red team exercise apart from a real intrusion?", "gold": ["certsg:IRM-20-Red-Team-Detection"]}
+{"id": "pr18", "type": "procedure", "question": "How do we prevent data theft through USB sticks?", "gold": ["austinsonger:T1052.001-Exfiltration-over-USB", "attack:T1052.001", "attack:T1052"]}
+{"id": "pr19", "type": "procedure", "question": "Customer personal data was exposed. What are the response and notification steps?", "gold": ["aws:IRP-PersonalDataBreach"]}
+{"id": "pr20", "type": "procedure", "question": "Temporary AWS session credentials are being used from an unknown IP address", "gold": ["aws:IRP-STSTokenAbuse"]}
+{"id": "oos01", "type": "out_of_scope", "question": "What is the capital of Australia?", "gold": []}
+{"id": "oos02", "type": "out_of_scope", "question": "Give me a recipe for chocolate cake", "gold": []}
+{"id": "oos03", "type": "out_of_scope", "question": "Who won the 2018 football World Cup?", "gold": []}
+{"id": "oos04", "type": "out_of_scope", "question": "Write a short poem about the sea", "gold": []}
+{"id": "oos05", "type": "out_of_scope", "question": "How do I center a div in CSS?", "gold": []}
+{"id": "oos06", "type": "out_of_scope", "question": "Which smartphone should I buy this year?", "gold": []}
+{"id": "oos07", "type": "out_of_scope", "question": "Translate good morning into Spanish", "gold": []}
+{"id": "oos08", "type": "out_of_scope", "question": "At what temperature does water boil at sea level?", "gold": []}
+{"id": "oos09", "type": "out_of_scope", "question": "Recommend a good movie for tonight", "gold": []}
+{"id": "oos10", "type": "out_of_scope", "question": "How many calories are in a banana?", "gold": []}
+{"id": "oos11", "type": "out_of_scope", "question": "What is the IP address of our company VPN gateway?", "gold": []}
+{"id": "oos12", "type": "out_of_scope", "question": "What was our SOC's mean time to respond last quarter?", "gold": []}

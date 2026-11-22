@@ -1,0 +1,52 @@
+# Central configuration. Every tunable lives here so experiments are reproducible.
+
+llm:
+  # Hybrid setup: "ollama" (local, DEFAULT, used for the demo) or "api" (optional,
+  # any OpenAI-compatible endpoint, for faster iteration during development only).
+  provider: ollama
+  temperature: 0.1              # low temperature = fewer creative (hallucinated) answers
+  timeout_s: 180
+
+  ollama:
+    base_url: http://localhost:11434
+    model: qwen3:4b-instruct-2507-q4_K_M   # no thinking mode, 2.5 GB; challenger: granite4.1:3b
+    num_ctx: 8192               # must match OLLAMA_CONTEXT_LENGTH (a different value forces a model reload)
+
+  api:                          # OFF by default. Never send real SOC data to a cloud API.
+    base_url: https://api.openai.com/v1   # any OpenAI-compatible endpoint
+    model: gpt-4o-mini
+    api_key_env: LLM_API_KEY    # read from environment / .env, never committed
+
+embeddings:
+  # English-only corpus and answers. Final choice is made by the hit@k / MRR eval (week 1).
+  model: BAAI/bge-small-en-v1.5   # baseline; candidate: ibm-granite/granite-embedding-small-english-r2
+  device: cpu
+  batch_size: 32
+  # Text added in front of QUERIES only (not documents), as each model card recommends.
+  query_prefix:
+    BAAI/bge-small-en-v1.5: "Represent this sentence for searching relevant passages: "
+    ibm-granite/granite-embedding-small-english-r2: ""
+
+chunking:
+  chunk_size: 800               # characters per chunk
+  chunk_overlap: 120
+
+retrieval:
+  mode: hybrid                  # bm25 | dense | hybrid
+  top_k: 4                      # chunks sent to the LLM (few = faster on CPU)
+  candidates: 30                # how many results each retriever passes to the fusion step
+  rrf_k: 60                     # Reciprocal Rank Fusion constant (standard value)
+  # Refusal gate (hallucination control) uses the best DENSE cosine score, because fused
+  # RRF scores are not comparable across queries. Calibrated in week 2 on the
+  # out-of-scope questions of eval/retrieval_questions.jsonl.
+  min_score: 0.35
+
+guard:
+  enabled: true
+  model_path: training/artifacts/injection_clf
+  threshold: 0.5
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  vector_store: data/processed/chroma
